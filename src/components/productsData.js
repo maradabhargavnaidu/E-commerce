@@ -33,8 +33,11 @@ const ProductsData = () => {
                 height={300 + "px"}
               />
               <div>
-                <h5 class="font-semibold ">{product.title}</h5>
-                <p class="">${product.price}</p>
+                <h5 className="font-semibold ">{product.title}</h5>
+                <p className="">${product.price}</p>
+                <div className="text-center">
+                  <button className="btn btn-primary">Add to Cart</button>
+                </div>
               </div>
             </div>
           ))}

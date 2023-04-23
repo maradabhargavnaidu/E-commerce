@@ -1,15 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { configureStore } from "@reduxjs/toolkit";
+import store from './features/reducers/Store'
 import { Provider } from "react-redux";
-import ProductReducer from "./features/Products";
 
-const store = configureStore({
-  reducer: {
-    products: ProductReducer,
-  },
-});
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
