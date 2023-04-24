@@ -24,10 +24,15 @@ const ProductsData = () => {
   }, []);
   return (
     <Container>
-      <Row gap={3}>
+      <Row>
         {products.map((product) => (
           <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={product.image} />
+            <Card.Img
+              variant="top"
+              src={product.image}
+              width={286}
+              height={180}
+            />
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
               <Card.Text>${product.price}</Card.Text>
