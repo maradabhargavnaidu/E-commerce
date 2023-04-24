@@ -4,6 +4,10 @@ import { useSelector } from "react-redux";
 import { setProducts } from "../features/Products";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../features/reducers/Actions";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import { Container } from "react-bootstrap";
+import Row from "react-bootstrap/Row";
 
 const ProductsData = () => {
   const products = useSelector((state) => state.products.value);
@@ -19,41 +23,30 @@ const ProductsData = () => {
     console.log(products);
   }, []);
   return (
-    <>
-      <div className="">
-        <div className="">
-          {products.map((product) => (
-            <div
-              style={{ width: 18 + "rem" }}
-              className="border-gray-500 border-2 rounded-lg"
-            >
-              <img
-                src={product.image}
-                alt="..."
-                width={150 + "px"}
-                height={300 + "px"}
-              />
-              <div>
-                <h5 className="">{product.title}</h5>
-                <p className="">${product.price}</p>
-                <div className="">
-                  <div key={product.id}>
-                    <button
-                      className="btn btn-primary"
-                      onClick={() => {
-                        dispatch(addItemToCart(product));
-                      }}
-                    >
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
+    <Container>
+      <Row gap={3}>
+        {products.map((product) => (
+          <Card style={{ width: "18rem" }}>
+            <Card.Img variant="top" src={product.image} />
+            <Card.Body>
+              <Card.Title>{product.title}</Card.Title>
+              <Card.Text>${product.price}</Card.Text>
+              <div key={product.id}>
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    dispatch(addItemToCart(product));
+                  }}
+                >
+                  Add Product
+                </Button>
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
+            </Card.Body>
+          </Card>
+        ))}
+      </Row>
+    </Container>
   );
 };
+
 export default ProductsData;
