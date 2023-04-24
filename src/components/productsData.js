@@ -20,8 +20,8 @@ const ProductsData = () => {
   }, []);
   return (
     <>
-      <div className="container mx-auto">
-        <div className="grid grid-cols-4">
+      <div className="">
+        <div className="">
           {products.map((product) => (
             <div
               style={{ width: 18 + "rem" }}
@@ -34,9 +34,9 @@ const ProductsData = () => {
                 height={300 + "px"}
               />
               <div>
-                <h5 className="font-semibold ">{product.title}</h5>
+                <h5 className="">{product.title}</h5>
                 <p className="">${product.price}</p>
-                <div className="text-center">
+                <div className="">
                   <div key={product.id}>
                     <button
                       className="btn btn-primary"
