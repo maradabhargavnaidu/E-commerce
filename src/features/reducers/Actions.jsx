@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import store from '../../features/reducers/Store'
+
 
 
 
@@ -10,16 +10,13 @@ export const cartSlice = createSlice({
         addItemToCart: (state, {payload}) =>{
             const {id} = payload
             const doesItemExist = state.find((item) => item.id===id)
+            console.log(id);
             if(doesItemExist){
                 return state.map((item)=>{
-                    if(item.id===id)
-                    {
                         return {
                             ...item,
                             quantity: item.quantity+1
                         }
-                    }
-                    return item
                 })
             }
             else{

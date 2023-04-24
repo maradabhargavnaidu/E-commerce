@@ -37,14 +37,16 @@ const ProductsData = () => {
                 <h5 className="font-semibold ">{product.title}</h5>
                 <p className="">${product.price}</p>
                 <div className="text-center">
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => {
-                      dispatch(addItemToCart());
-                    }}
-                  >
-                    Add to Cart
-                  </button>
+                  <div key={product.id}>
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => {
+                        dispatch(addItemToCart(product));
+                      }}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
