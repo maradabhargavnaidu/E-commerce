@@ -9,6 +9,9 @@ export const productSlice = createSlice({
     setProducts: (state, action) => {
       state.value.push(...action.payload);
     },
+    cartCount: (state, action) => {
+      state.value = action.payload;
+    },
   },
 });
 export default productSlice.reducer;

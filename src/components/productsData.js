@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { setProducts } from "../features/Products";
 import { useDispatch } from "react-redux";
+import { addItemToCart } from "../features/reducers/Actions";
 
 const ProductsData = () => {
   const products = useSelector((state) => state.products.value);
@@ -36,7 +37,14 @@ const ProductsData = () => {
                 <h5 className="font-semibold ">{product.title}</h5>
                 <p className="">${product.price}</p>
                 <div className="text-center">
-                  <button className="btn btn-primary">Add to Cart</button>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      dispatch(addItemToCart());
+                    }}
+                  >
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             </div>
