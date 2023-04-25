@@ -5,25 +5,27 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const cartSlice = createSlice({
     name:"cart",
-    initialState: [],
+    initialState: {value:[],},
     reducers: {
         addItemToCart: (state, {payload}) =>{
             const {id} = payload
-            const doesItemExist = state.find((item) => item.id===id)
+            console.log(payload)
+            // const doesItemExist = state.value.find((item) => item===id)
             console.log(id);
-            if(doesItemExist){
-                return state.map((item)=>{
-                        return {
-                            ...item,
-                            quantity: item.quantity+1
-                        }
-                })
-            }
-            else{
-                state.push({
-                    ...payload, quantity:1
-                })
-            }
+            // if(doesItemExist){
+                state.value.push(payload);
+            //     // return state.value.map((item)=>{
+            //     //         return {
+            //     //             ...item,
+            //     //             item
+            //     //         }
+            //     // })
+            // }
+            // // else{
+            //     state.value.push({
+            //         ...payload, quantity:1
+            //     })
+            // }
         },
         removeItemFromCart: (state,{payload})=>{
             const {id} = payload

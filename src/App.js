@@ -1,13 +1,19 @@
 import "./App.css";
-import ProductsData from "./components/productsData";
-import Navbar from "./components/Navbar";
-// import {Routes,Route,BrowserRouter as Router} from "react-router-dom"
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import Home from "./Pages/Home";
+import Cart from "./Pages/Cart";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./components/Header";
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <ProductsData />
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
