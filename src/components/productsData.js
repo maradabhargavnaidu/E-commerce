@@ -5,24 +5,31 @@ import { setProducts } from "../features/Products";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../features/reducers/Actions";
 import Button from "react-bootstrap/Button";
+import { Navigate, useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import { Container, Stack } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 
 const ProductsData = () => {
+  // FOR SHOWING PRODUCTS WHICH ARE PRESENT IN STORE
   const products = useSelector((state) => state.products.value);
-  console.log(products);
+  const Navigate = useNavigate();
+  // console.log(products);
+  // DISPATCH
   const dispatch = useDispatch();
+  // FETCHING PRODUCTS
   const fetchProducts = async () => {
     const productData = await fetch("https://fakestoreapi.com/products", {
       method: "GET",
     }).then((res) => res.json());
     dispatch(setProducts(productData));
   };
+  // SIDE EFFECTS
   useEffect(() => {
     fetchProducts();
     // console.log(products);
   }, []);
+  const view = () => {};
   return (
     <Container>
       <Row style={{ margin: "auto" }}>
@@ -34,6 +41,7 @@ const ProductsData = () => {
               marginBottom: "30px",
               marginTop: "20px",
             }}
+            onClick={() => Navigate("/product/" + product.id)}
           >
             <Card.Img
               variant="top"
@@ -46,7 +54,12 @@ const ProductsData = () => {
               <Card.Text style={{ fontWeight: "500" }}>
                 ${product.price}
               </Card.Text>
-              <Card.Text>{product.rating.rate}</Card.Text>
+              <Card.Text style={{ fontWeight: "700" }}>
+                Rating:{product.rating.rate}
+              </Card.Text>
+              <Card.Text style={{ fontWeight: "700" }}>
+                {product.category}
+              </Card.Text>
               {/* <Stack direction="horizontal" gap={5}>
                 
                 <div key={product.id}>

@@ -16,11 +16,12 @@ const Cart = () => {
               variant="top"
               src={product.image}
               width={286}
-              height={180}
+              height={286}
             />
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
               <Card.Text>${product.price}</Card.Text>
+              <Button>Remove</Button>
             </Card.Body>
           </Card>
         ))}

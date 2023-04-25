@@ -10,18 +10,18 @@ const Header = () => {
   return (
     <>
       <Navbar
-        bg="light"
-        variant="light"
+        bg="dark"
+        variant="dark"
         expand="lg"
         sticky="top"
         style={{ padding: "20px 0" }}
       >
         <Container>
-          <Navbar.Brand href="#home">REDUX</Navbar.Brand>
+          <Navbar.Brand href="">REDUX</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link className="cartCount">
+              <Nav.Link to="" className="cartCount">
                 Cart items: {items.length}
               </Nav.Link>
             </Nav>
