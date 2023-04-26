@@ -8,7 +8,7 @@ export const cartSlice = createSlice({
     initialState: {value:[],},
     reducers: {
         addItemToCart: (state, {payload}) =>{
-            const {id} = payload
+            // const {id} = payload
             // console.log(payload);
             // const doesItemExist = state.value.find((item) => item===id)
             // console.log(id);
@@ -28,7 +28,7 @@ export const cartSlice = createSlice({
             // }
         },
         removeItemFromCart: (state,{payload})=>{
-            const {id} = payload
+            // const {id} = payload
             state.value.pop();
             // const updateCart = state.value.map((item) => {
             //     console.log(item);

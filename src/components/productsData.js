@@ -3,11 +3,9 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { setProducts } from "../features/Products";
 import { useDispatch } from "react-redux";
-import { addItemToCart } from "../features/reducers/Actions";
-import Button from "react-bootstrap/Button";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
-import { Container, Stack } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 
 const ProductsData = () => {
@@ -40,7 +38,7 @@ const ProductsData = () => {
               marginLeft: "30px",
               marginBottom: "30px",
               marginTop: "20px",
-              cursor: 'pointer'
+              cursor: "pointer",
             }}
             onClick={() => Navigate("/product/" + product.id)}
           >

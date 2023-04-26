@@ -11,7 +11,7 @@ const View = () => {
   const Navigate = useNavigate();
   const dispatch = useDispatch();
   const fetchSelected = async () => {
-    const productData = await fetch("https://fakestoreapi.com/products/" + id, {
+    await fetch("https://fakestoreapi.com/products/" + id, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -20,17 +20,22 @@ const View = () => {
   useEffect(() => {
     fetchSelected();
   });
-  // const rating = product.rating;
   return (
-    <Container>
+    <Container
+      style={{ backgroundColor: "white", marginTop: "5px", padding: "40px" }}
+    >
       <Stack direction="horizontal" gap={5}>
-        <img src={product.image} width="50%" height="650px" />
-        <Stack>
-          <h3>{product.title}</h3>
-          <h4>
-            {/* Rating: {product.rating.rate} | {product.rating.count} ratings */}
-          </h4>
-          <hr />
+        <img
+          src={product.image}
+          width="50%"
+          height="650px"
+          alt="product_image"
+        />
+        <Stack gap={2}>
+          <h3>
+            {product.title}
+            <hr />
+          </h3>
           <h4>
             <Badge bg="secondary">Deal</Badge>
           </h4>
@@ -39,11 +44,12 @@ const View = () => {
             <Badge bg="dark">Full Filled</Badge>
           </h5>
           <h3>Inclusive of all taxes</h3>
-          <Button variant="outline-secondary">{product.category}</Button>{" "}
+          <hr />
+          <h6>{product.description}</h6>
           <Stack direction="horizontal" gap={3}>
             <div key={product.id}>
               <Button
-                variant="danger"
+                variant="outline-danger"
                 onClick={() => {
                   dispatch(addItemToCart(product));
                 }}
@@ -52,7 +58,15 @@ const View = () => {
               </Button>
             </div>
             <div>
-              <Button onClick={() => Navigate("/cart")}>Go To Cart</Button>
+              <Button
+                variant="outline-primary"
+                onClick={() => Navigate("/cart")}
+              >
+                Go To Cart
+              </Button>
+            </div>
+            <div>
+              <Button variant="outline-dark">{product.category}</Button>{" "}
             </div>
           </Stack>
         </Stack>
