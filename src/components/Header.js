@@ -7,7 +7,7 @@ import { NavDropdown } from "react-bootstrap";
 
 import { useDispatch, useSelector } from "react-redux";
 const Header = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const Navigate = useNavigate();
   const items = useSelector((state) => state.cart.value);
 
@@ -39,7 +39,7 @@ const Header = () => {
                 className="cartCount"
                 onClick={() => Navigate("/cart")}
               >
-                Cart items: {items.length}
+                Cart: {items.length}
               </Nav.Link>
               {/* <Nav.Link style={{color:'white'}} className="cartCount">
                 Total Price: {calculateTotal}

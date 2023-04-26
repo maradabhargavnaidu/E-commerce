@@ -24,18 +24,17 @@ const View = () => {
     <Container
       style={{ backgroundColor: "white", marginTop: "5px", padding: "40px" }}
     >
-      <Stack direction="horizontal" gap={5}>
+      <Stack direction="vertical" gap={5}>
         <img
           src={product.image}
-          width="50%"
-          height="650px"
           alt="product_image"
+          style={{ width: "50%", height: "550px", display: "block" }}
         />
         <Stack gap={2}>
-          <h3>
+          <p className="text-2xl font-semibold">
             {product.title}
             <hr />
-          </h3>
+          </p>
           <h4>
             <Badge bg="secondary">Deal</Badge>
           </h4>

@@ -24,7 +24,7 @@ const ShoppingList = () => {
             to="/lists"
             className="text-md cursor-pointer bg-gray-800 text-white py-2 px-10 rounded-full border-solid border-2 border-white hover:bg-gray-900 hover:text-blue-500 hover:border-blue-500 font-semibold mt-5"
           >
-            Get Started
+            Create List
           </Link>
         </div>
         <div>
