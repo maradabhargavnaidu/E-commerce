@@ -5,6 +5,7 @@ import Badge from "react-bootstrap/Badge";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../features/reducers/Actions";
 import { useNavigate } from "react-router-dom";
+import "../App.css";
 const View = () => {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
@@ -28,7 +29,8 @@ const View = () => {
         <img
           src={product.image}
           alt="product_image"
-          style={{ width: "50%", height: "550px", display: "block" }}
+          style={{ height: "550px", display: "block" }}
+          className="md:w-[50%]"
         />
         <Stack gap={2}>
           <p className="text-2xl font-semibold">
