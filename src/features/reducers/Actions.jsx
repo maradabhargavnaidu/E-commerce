@@ -9,9 +9,9 @@ export const cartSlice = createSlice({
     reducers: {
         addItemToCart: (state, {payload}) =>{
             const {id} = payload
-            console.log(payload);
+            // console.log(payload);
             // const doesItemExist = state.value.find((item) => item===id)
-            console.log(id);
+            // console.log(id);
             // if(doesItemExist){
                 state.value.push(payload);
             //     // return state.value.map((item)=>{
@@ -29,18 +29,19 @@ export const cartSlice = createSlice({
         },
         removeItemFromCart: (state,{payload})=>{
             const {id} = payload
-            const updateCart = state.map((item) => {
-                console.log(item);
-                if(item.id===id && item.quantity>0)
-                {
-                    return {
-                        ...item,
-                        quantity: item.quantity - 1
-                    }
-                }
-                return item;
-            })
-            return updateCart
+            state.value.pop();
+            // const updateCart = state.value.map((item) => {
+            //     console.log(item);
+            //     if(item.id===id && item.quantity>0)
+            //     {
+            //         return {
+            //             ...item,
+            //             quantity: item.quantity - 1
+            //         }
+            //     }
+            //     return item;
+            // })
+            // return updateCart
         },
         // calculateTotal: (state)=>{
         //     let amount = 0;
