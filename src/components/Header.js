@@ -34,13 +34,22 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link style={{ color: "white" }} className="cartCount">
+              <Nav.Link
+                style={{ color: "white" }}
+                className="cartCount"
+                onClick={() => Navigate("/cart")}
+              >
                 Cart items: {items.length}
               </Nav.Link>
               {/* <Nav.Link style={{color:'white'}} className="cartCount">
                 Total Price: {calculateTotal}
               </Nav.Link> */}
-              <Nav.Link>Accounts</Nav.Link>
+              <NavDropdown title="Lists" id="navbarScrollingDropdown">
+                <NavDropdown.Item onClick={() => Navigate("/shoppinglist")}>
+                  Shopping List
+                </NavDropdown.Item>
+                <NavDropdown.Item>Create a Wish List</NavDropdown.Item>
+              </NavDropdown>
               <NavDropdown title="Categories" id="navbarScrollingDropdown">
                 <NavDropdown.Item
                   onClick={() => Navigate("category/men's clothing")}

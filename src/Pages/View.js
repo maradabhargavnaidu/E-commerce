@@ -66,7 +66,12 @@ const View = () => {
               </Button>
             </div>
             <div>
-              <Button variant="outline-dark">{product.category}</Button>{" "}
+              <Button
+                variant="outline-dark"
+                onClick={() => Navigate("/category/" + product.category)}
+              >
+                {product.category}
+              </Button>{" "}
             </div>
           </Stack>
         </Stack>

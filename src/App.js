@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./Pages/Home";
 import Cart from "./Pages/Cart";
@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header";
 import View from "./Pages/View";
 import Category from "./Pages/Category";
+import ShoppingList from "./Pages/ShoppingList";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:id" element={<View />} />
           <Route path="/category/:product" element={<Category />} />
+          <Route path="/shoppinglist" element={<ShoppingList />} />
         </Routes>
       </Router>
     </div>

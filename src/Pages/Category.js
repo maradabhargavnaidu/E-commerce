@@ -21,7 +21,7 @@ const Category = () => {
   });
   return (
     <Container>
-      <Row style={{ margin: "auto" }}>
+      <Row>
         {categoryProduct.map((product) => (
           <Card
             style={{
@@ -36,8 +36,7 @@ const Category = () => {
             <Card.Img
               variant="top"
               src={product.image}
-              width={286}
-              height={286}
+              style={{ padding: "30px", width: "286px", height: "286px" }}
             />
             <Card.Body>
               <Card.Title style={{ color: "blue" }}>{product.title}</Card.Title>
