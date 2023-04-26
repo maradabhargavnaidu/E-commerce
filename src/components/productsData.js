@@ -29,7 +29,7 @@ const ProductsData = () => {
     fetchProducts();
     // console.log(products);
   }, []);
-  const view = () => {};
+
   return (
     <Container>
       <Row style={{ margin: "auto" }}>
@@ -40,6 +40,7 @@ const ProductsData = () => {
               marginLeft: "30px",
               marginBottom: "30px",
               marginTop: "20px",
+              cursor: 'pointer'
             }}
             onClick={() => Navigate("/product/" + product.id)}
           >
