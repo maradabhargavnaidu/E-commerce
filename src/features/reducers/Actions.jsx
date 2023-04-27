@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useState, useEffect } from "react";
 
-
-
+const initialCart = localStorage.getItem('cart') 
+    ? JSON.parse(localStorage.getItem('cart')) : [];
 
 export const cartSlice = createSlice({
     name:"cart",
@@ -13,7 +14,8 @@ export const cartSlice = createSlice({
             // const doesItemExist = state.value.find((item) => item===id)
             // console.log(id);
             // if(doesItemExist){
-                state.value.push(payload);
+            state.value.push(payload);
+            localStorage.setItem('cart', JSON.stringify(state.value))
             //     // return state.value.map((item)=>{
             //     //         return {
             //     //             ...item,
@@ -43,17 +45,9 @@ export const cartSlice = createSlice({
             // })
             // return updateCart
         },
-        // calculateTotal: (state)=>{
-        //     let amount = 0;
-        //     let total = 0;
-        //     state.cart.forEach((item)=>{
-        //         amount+=item.amount;
-        //         total+=item.amount * item.price;
-        //     });
-        //     state.amount = amount;
-        //     state.total = total;
-        // }
     }
 })
+
+
 export const {addItemToCart, removeItemFromCart, calculateTotal} = cartSlice.actions
 export default cartSlice.reducer;

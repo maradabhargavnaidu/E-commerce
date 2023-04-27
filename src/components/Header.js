@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -10,9 +10,14 @@ const Header = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.value);
 
-  // useEffect(()=>{
-  //   dispatch(calculateTotal());
-  // },[items])
+  const [showItem, setShowItem] = useState(true)
+  useEffect(()=>{
+    const data = window.localStorage.getItem('item')
+    if(data!==null)
+    {
+      setShowItem(JSON.parse(data))
+    }
+  }, [])
 
   return (
     <>
