@@ -1,5 +1,9 @@
+// <<<<<<< HEAD
 import React from "react";
 
+// =======
+import { useEffect, useState } from "react";
+// >>>>>>> 508d318543a02910b020bd7a1bec5a87b95436f7
 import { useDispatch, useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -14,8 +18,8 @@ const Cart = () => {
   return (
     <Container>
       <Col style={{ backgroundColor: "white", padding: "30px" }}>
-        <h1>Shopping Cart</h1>
-        {items.length == 0 ? <h1>Your Redux Cart is Empty</h1> : ""}
+        {/* <h1>Shopping Cart</h1> */}
+        {/* {items.length == 0 ? <h1>Your Redux Cart is Empty</h1> : ""} */}
         {Cartproducts.map((product) => (
           <>
             <Card style={{ width: "18rem" }} key={product.id}>
@@ -28,14 +32,16 @@ const Cart = () => {
               <Card.Body>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>${product.price}</Card.Text>
-                <Button
-                  variant="danger"
-                  onClick={() => {
-                    dispatch(removeItemFromCart(product));
-                  }}
-                >
-                  Remove
-                </Button>
+                <div key={product.id}>
+                  <Button
+                    variant="outline-danger"
+                    onClick={() => {
+                      dispatch(removeItemFromCart(product));
+                    }}
+                  >
+                    Remove
+                  </Button>
+                </div>
               </Card.Body>
             </Card>
           </>
