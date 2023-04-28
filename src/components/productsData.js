@@ -29,17 +29,17 @@ const ProductsData = () => {
   }, []);
 
   return (
-    <Container>
-      <Row>
+    <Container fluid>
+      <Row className="">
         {products.map((product) => (
           <Card
             style={{
-              width: "18rem",
               marginLeft: "30px",
               marginBottom: "30px",
               marginTop: "20px",
               cursor: "pointer",
             }}
+            className="md:w-68 w-80"
             onClick={() => Navigate("/product/" + product.id)}
           >
             <Card.Img
@@ -48,14 +48,14 @@ const ProductsData = () => {
               style={{ padding: "30px", width: "286px", height: "286px" }}
             />
             <Card.Body>
-              <Card.Title style={{ color: "blue" }}>{product.title}</Card.Title>
-              <Card.Text style={{ fontWeight: "500" }}>
+              <Card.Title className="text-black">{product.title}</Card.Title>
+              <Card.Text className="text-gray-800 font-semibold">
                 ${product.price}
               </Card.Text>
-              <Card.Text style={{ fontWeight: "700" }}>
+              <Card.Text className="text-orange-600 font-semibold">
                 Rating:{product.rating.rate}
               </Card.Text>
-              <Card.Text style={{ fontWeight: "700" }}>
+              <Card.Text className="text-blue-800 font-medium">
                 {product.category}
               </Card.Text>
               {/* <Stack direction="horizontal" gap={5}>

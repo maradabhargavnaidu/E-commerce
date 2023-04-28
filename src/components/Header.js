@@ -1,35 +1,34 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useNavigate } from "react-router-dom";
 import { NavDropdown } from "react-bootstrap";
-
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 const Header = () => {
   // const dispatch = useDispatch();
   const Navigate = useNavigate();
   const items = useSelector((state) => state.cart.value);
 
-  const [showItem, setShowItem] = useState(true)
-  useEffect(()=>{
-    const data = window.localStorage.getItem('item')
-    if(data!==null)
-    {
-      setShowItem(JSON.parse(data))
+  const [showItem, setShowItem] = useState(true);
+  useEffect(() => {
+    const data = window.localStorage.getItem("item");
+    if (data !== null) {
+      setShowItem(JSON.parse(data));
     }
-  }, [])
+  }, []);
 
   return (
     <>
       <Navbar
-        bg="dark"
-        variant="dark"
+        bg="light"
+        variant="light"
         expand="lg"
         sticky="top"
         style={{ padding: "20px 0" }}
       >
-        <Container>
+        <Container fluid>
           <Navbar.Brand
             onClick={() => Navigate("/")}
             style={{ cursor: "pointer" }}
@@ -40,11 +39,11 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link
-                style={{ color: "white" }}
-                className="cartCount"
+                className="flex items-center"
                 onClick={() => Navigate("/cart")}
               >
-                Cart: {items.length}
+                <AiOutlineShoppingCart />
+                &nbsp;&nbsp;{items.length}
               </Nav.Link>
               {/* <Nav.Link style={{color:'white'}} className="cartCount">
                 Total Price: {calculateTotal}

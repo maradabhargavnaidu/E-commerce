@@ -5,6 +5,7 @@ import Badge from "react-bootstrap/Badge";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../features/reducers/Actions";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import "../App.css";
 const View = () => {
   const { id } = useParams();
@@ -22,16 +23,9 @@ const View = () => {
     fetchSelected();
   });
   return (
-    <Container
-      style={{ backgroundColor: "white", marginTop: "5px", padding: "40px" }}
-    >
+    <Container className="bg-white mt-3 rounded-lg md:px-32 py-10">
       <Stack direction="vertical" gap={5}>
-        <img
-          src={product.image}
-          alt="product_image"
-          style={{ height: "550px", display: "block" }}
-          className="md:w-[50%]"
-        />
+        <img src={product.image} alt="product_image" className="md:w-[50%]" />
         <Stack gap={2}>
           <p className="text-2xl font-semibold">
             {product.title}
@@ -55,15 +49,15 @@ const View = () => {
                   dispatch(addItemToCart(product));
                 }}
               >
-                Add To Cart
+                Add to cart
               </Button>
             </div>
             <div>
               <Button
-                variant="outline-primary"
+                className="bg-green-600 border-none"
                 onClick={() => Navigate("/cart")}
               >
-                Go To Cart
+                <AiOutlineShoppingCart />
               </Button>
             </div>
             <div>
