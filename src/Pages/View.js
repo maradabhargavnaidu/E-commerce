@@ -6,10 +6,12 @@ import { useDispatch } from "react-redux";
 import { addItemToCart } from "../features/reducers/Actions";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { MdOutlineAddShoppingCart } from "react-icons/md";
 import "../App.css";
 const View = () => {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
+  const [quantity, setQuantity] = useState(0);
   const Navigate = useNavigate();
   const dispatch = useDispatch();
   const fetchSelected = async () => {
@@ -19,6 +21,12 @@ const View = () => {
       .then((res) => res.json())
       .then((data) => setProduct(data));
   };
+  function inc() {
+    setQuantity(quantity + 1);
+  }
+  function dec() {
+    setQuantity(quantity - 1);
+  }
   useEffect(() => {
     fetchSelected();
   });
@@ -41,20 +49,26 @@ const View = () => {
           <h3>Inclusive of all taxes</h3>
           <hr />
           <h6>{product.description}</h6>
+          <Stack direction="horizontal">
+            <Button onClick={dec}>-</Button>
+            <p>{quantity}</p>
+            <Button onClick={inc}>+</Button>
+          </Stack>
           <Stack direction="horizontal" gap={3}>
             <div key={product.id}>
               <Button
-                variant="outline-danger"
+                className="bg-blue-600 hover:bg-blue-900"
                 onClick={() => {
-                  dispatch(addItemToCart(product));
+                  dispatch(addItemToCart({ ...product, quantity }));
+                  Navigate("/cart");
                 }}
               >
-                Add to cart
+                <MdOutlineAddShoppingCart />
               </Button>
             </div>
             <div>
               <Button
-                className="bg-green-600 border-none"
+                className="bg-green-600 border-none "
                 onClick={() => Navigate("/cart")}
               >
                 <AiOutlineShoppingCart />

@@ -17,13 +17,13 @@ const Cart = () => {
   const Cartproducts = useSelector((state) => state.cart.value);
   const dispatch = useDispatch();
   return (
-    <Container>
+    <Container className="mt-3">
       <Col
         style={{ backgroundColor: "white", padding: "30px" }}
         className="rounded-md"
       >
         <h1 className="text-3xl">Shopping Cart</h1>
-        {items.length == 0 ? (
+        {items?.length == 0 ? (
           <h1 className="text-2xl text-gray-700">Your Redux Cart is Empty</h1>
         ) : (
           ""
@@ -32,7 +32,7 @@ const Cart = () => {
           <>
             <Card
               style={{
-                width: "18rem",
+                // width: "18rem",
                 marginLeft: "30px",
                 marginBottom: "30px",
                 marginTop: "20px",
@@ -48,6 +48,7 @@ const Cart = () => {
               <Card.Body>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>${product.price}</Card.Text>
+                <Card.Text>Quantity:{product.cartQuantity}</Card.Text>
                 <div key={product.id}>
                   <Button
                     variant="outline-danger"

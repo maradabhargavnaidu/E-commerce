@@ -39,7 +39,7 @@ const ProductsData = () => {
               marginTop: "20px",
               cursor: "pointer",
             }}
-            className="md:w-68 w-80"
+            className=" w-[330px]"
             onClick={() => Navigate("/product/" + product.id)}
           >
             <Card.Img
@@ -58,19 +58,6 @@ const ProductsData = () => {
               <Card.Text className="text-blue-800 font-medium">
                 {product.category}
               </Card.Text>
-              {/* <Stack direction="horizontal" gap={5}>
-                
-                <div key={product.id}>
-                  <Button
-                    variant="primary"
-                    onClick={() => {
-                      dispatch(addItemToCart(product));
-                    }}
-                  >
-                    Add Product
-                  </Button>
-                </div>
-              </Stack> */}
             </Card.Body>
           </Card>
         ))}

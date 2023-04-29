@@ -1,23 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 export const cartSlice = createSlice({
     name:"cart",
     initialState: {value:[],},
     reducers: {
-        addItemToCart: (state, {payload}) =>{
-            
-            state.value.push(payload);
-            
+        addItemToCart: (state,action) =>{
+            const itemquantity = state.value.findIndex((item)=>item.id===action.payload.id)
+            if(itemquantity>=0){
+                state.value[itemquantity].cartQuantity+=action.payload.quantity;
+            }
+            else{
+                const temp = {...action.payload,cartQuantity:action.payload.quantity}
+                state.value.push(temp);
+            }
+           
         },
         removeItemFromCart: (state,{payload})=>{
             return {
                 ...state.value,
-                cart: state.value.filter((item) => item.id !== payload.id),
+                value: state.value.filter((item) => item.id !== payload.id),
               };
-            
-            console.log(payload.id)
-            state.value.filter(payload.id)
         },
     }
 })

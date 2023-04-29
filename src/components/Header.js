@@ -43,7 +43,7 @@ const Header = () => {
                 onClick={() => Navigate("/cart")}
               >
                 <AiOutlineShoppingCart />
-                &nbsp;&nbsp;{items.length}
+                &nbsp;&nbsp;{items?.length}
               </Nav.Link>
               {/* <Nav.Link style={{color:'white'}} className="cartCount">
                 Total Price: {calculateTotal}
